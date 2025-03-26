@@ -132,7 +132,8 @@ app.post("/upload",verifyToken, async (req, res) => {
 
         // Convert HTML to DOCX format
         const docxBuffer = await htmlToDocx(content);
-        const tempFilePath = path.join(__dirname, `${title}.docx`);
+        // const tempFilePath = path.join(__dirname, `${title}.docx`);
+        const tempFilePath = path.join('/tmp', `${title}.docx`);
         fs.writeFileSync(tempFilePath, docxBuffer);
 
         // Upload to Google Drive
